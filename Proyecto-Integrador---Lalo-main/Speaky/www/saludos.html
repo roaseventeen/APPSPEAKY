@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speaky Chat - Saludos y Despedidas</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -23,28 +23,30 @@
             z-index: 1000;
         }
         .header-content {
+            position: relative;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
         }
         .back-button {
+            position: absolute;
+            left: 1px;
             background: none;
             border: none;
             cursor: pointer;
             padding: 10px;
         }
         .back-button img {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
         }
         h1 {
             margin: 0;
             font-size: 20px;
-            flex-grow: 1;
             text-align: center;
         }
         .content-wrapper {
-            margin-top: 10%; /* Añade un 10% de margen superior */
+            margin-top: 15%; /* Añade un 20% de margen superior */
             padding: 20px;
             text-align: center;
         }
@@ -69,14 +71,14 @@
     <header>
         <div class="header-content">
             <button class="back-button" onclick="goBack()">
-                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+                <img src="img/arrow-regresar.png" alt="Regresar">
             </button>
             <h1>Saludos y Despedidas</h1>
         </div>
     </header>
 
     <div class="content-wrapper">
-        <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/saludos.PNG" alt="Saludos y Despedidas">
+        <img src="img/saludos.PNG" alt="Saludos y Despedidas">
     </div>
 
     <script>

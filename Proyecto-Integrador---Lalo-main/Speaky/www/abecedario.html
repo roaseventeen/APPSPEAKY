@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speaky Chat - Abecedario</title>
-    <link rel="stylesheet" href="css/home.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -23,28 +22,30 @@
             z-index: 1000;
         }
         .header-content {
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
-        .back-button, .menu-button {
+        .back-button {
+            position: absolute;
+            left: 1px;
             background: none;
             border: none;
             cursor: pointer;
             padding: 10px;
         }
         .back-button img {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
         }
         h1 {
             margin: 0;
             font-size: 20px;
             text-align: center;
-            flex-grow: 1;
         }
         .content-wrapper {
-            margin-top: 10%; /* Añade un 10% de margen superior */
+            margin-top: 20%; /* Añade un 20% de margen superior */
             padding: 20px;
             text-align: center;
         }
@@ -69,15 +70,14 @@
     <header>
         <div class="header-content">
             <button class="back-button" onclick="goBack()">
-                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+                <img src="img/arrow-regresar.png" alt="Regresar">
             </button>
             <h1>Abecedario</h1>
-            <button class="menu-button">☰</button>
         </div>
     </header>
 
     <div class="content-wrapper">
-        <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/abecedario.jpg" alt="Abecedario">
+        <img src="img/abecedario.jpg" alt="Abecedario">
     </div>
 
     <script>

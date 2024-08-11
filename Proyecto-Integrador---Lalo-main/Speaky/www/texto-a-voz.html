@@ -42,13 +42,11 @@
             height: auto;
         }
         .back-button {
-            left: -18%; /* Pegado a la orilla izquierda */
+            left: -15%; /* Pegado a la orilla izquierda */
         }
-        .menu-button {
-            right: -18%; /* Pegado a la orilla derecha */
-        }
+
         .back-button img, .menu-button img {
-            width: 10%; /* Tamaño de la imagen dentro del botón al 10% del ancho del botón */
+            width: 25%; /* Tamaño de la imagen dentro del botón al 10% del ancho del botón */
             height: auto;
         }
         .header-content {
@@ -72,7 +70,7 @@
             box-sizing: border-box;
         }
         textarea {
-            width: 100%;
+            width: 95%;
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
@@ -84,6 +82,7 @@
             padding: 10px;
             margin: 5px 0;
             cursor: pointer;
+            width: 101%;
         }
         #image-input {
             margin-top: 10px;
@@ -94,10 +93,9 @@
     <header>
         <div class="header-content">
             <button class="back-button" onclick="goBack()">
-                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+                <img src="img/arrow-regresar.png" alt="Regresar">
             </button>
             <div class="title">Texto/Imagen a Voz</div>
-            <button class="menu-button"></button>
         </div>
     </header>
     <main>
