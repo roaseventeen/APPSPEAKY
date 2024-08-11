@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky Chat - Atajos</title>
+    <link rel="stylesheet" href="css/atajos.css">
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=1zOZs0eN"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #352d73; /* Cambia esto según el color que desees */
+           
+        }
+        #back-button, #info-button {
+            width: 24px; /* Ajusta el tamaño si es necesario */
+            height: 24px; /* Ajusta el tamaño si es necesario */
+            cursor: pointer;
+        }
+        #back-button {
+            margin-left: 10px;
+        }
+        #info-button {
+            margin-right: 10px;
+        }
+        #header-title {
+            font-size: 24px;
+            text-align: center;
+            flex: 1;
+        }
+        .menu-icon {
+            width: 24px; /* Ajusta el tamaño si es necesario */
+            height: 24px; /* Ajusta el tamaño si es necesario */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/arrow-regresar.png" alt="Volver" id="back-button" class="back-arrow">
+        <h1 id="header-title">Atajos</h1>
+    </header>
+    
+    <div class="action-bar" id="main-action-bar">
+        <button class="action-button" id="create-collection-button">+ Crear Colección</button>
+        <button class="action-button" id="create-shortcut-button">+ Crear Atajo</button>
+    </div>
+    <div class="search-container" id="main-search-container">
+        <input type="text" id="search-bar" placeholder="Buscar..." oninput="filterCollections()">
+    </div>
+    <div id="collections-list" class="collections-grid"></div>
+    
+    <div id="shortcuts-container" style="display: none;">
+        <div id="shortcuts-list" class="shortcuts-grid"></div>
+    </div>
+
+    <div class="modal" id="create-collection-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeCreateCollectionModal()">&times;</span>
+            <h2>Crear Colección</h2>
+            <div class="form-group">
+                <label for="collection-name">Nombre de la Colección</label>
+                <input type="text" id="collection-name" required>
+                <button onclick="createCollection()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="create-shortcut-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeCreateShortcutModal()">&times;</span>
+            <h2>Crear Atajo</h2>
+            <form id="create-shortcut-form">
+                <div class="form-group">
+                    <label for="shortcut-name">Nombre del Atajo</label>
+                    <input type="text" id="shortcut-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="shortcut-content">Contenido</label>
+                    <textarea id="shortcut-content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="collection-select">Seleccionar Colección</label>
+                    <select id="collection-select" required></select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Crear Atajo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="rename-collection-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeRenameCollectionModal()">&times;</span>
+            <h2>Renombrar Colección</h2>
+            <form id="rename-collection-form">
+                <div class="form-group">
+                    <label for="new-collection-name">Nuevo nombre de la colección</label>
+                    <input type="text" id="new-collection-name" required>
+                    <button type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="edit-shortcut-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditShortcutModal()">&times;</span>
+            <h2>Editar Atajo</h2>
+            <form id="edit-shortcut-form">
+                <div class="form-group">
+                    <label for="edit-shortcut-name">Nombre del Atajo</label>
+                    <input type="text" id="edit-shortcut-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-shortcut-content">Contenido</label>
+                    <textarea id="edit-shortcut-content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="delete-confirmation-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeDeleteConfirmationModal()">&times;</span>
+            <h2>Confirmar Eliminación</h2>
+            <p>¿Estás seguro de que deseas eliminar esta colección?</p>
+            <div class="form-group">
+                <button id="confirm-delete-button">Sí</button>
+                <button onclick="closeDeleteConfirmationModal()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="js/atajos.js"></script>
+    <script>
+        function showInfo() {
+            alert('Información adicional'); // Cambia esto según la funcionalidad que desees
+        }
+    </script>
+</body>
+</html>

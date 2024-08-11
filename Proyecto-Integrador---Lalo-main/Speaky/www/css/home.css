@@ -1,0 +1,155 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1E1F23; /* Color de fondo general */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden; /* Evita el desplazamiento en todas las pantallas */
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard */
+}
+
+header {
+    margin-top: 10px; /* Ajustar el margen superior */
+}
+
+header h1 {
+    color: #FFFFFF; /* Color del texto */
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px; /* Ajustar el margen inferior */
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinear al principio */
+    flex: 1; /* Permitir que el contenido crezca */
+    width: 100%; /* Asegurar que tome el ancho completo */
+    padding: 20px 0; /* Ajustar el padding superior para subir los íconos */
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto; /* Dos filas de altura automática */
+    gap: 20px;
+    padding: 0 20px; /* Ajustar el padding para subir los íconos */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-container {
+    background-color: #431999; /* Color de los cuadros */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 90px; /* Ajustar el tamaño del ícono */
+    height: 90px;
+}
+
+.menu-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF; /* Color del texto */
+    text-align: center;
+}
+
+/* Asegura que el ícono "Pulso Cardiaco" esté centrado */
+.middle-item {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+.profile-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    background-color: #431999; /* Color del rectángulo */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-icon {
+    background-color: #431999; /* Color del ícono de perfil */
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px; /* Ajuste para que sobresalga del rectángulo */
+}
+
+.profile-icon img {
+    width: 80px;
+    height: 80px;
+}
+
+.profile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos para el menú de perfil */
+.profile-menu {
+    position: absolute;
+    bottom: 90px; /* Ajuste para que el menú se coloque encima del rectángulo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #431999; /* Color del menú */
+    border-radius: 5px;
+    padding: 10px;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-menu button {
+    background-color: #342074;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Asegurar que tome el ancho completo */
+}
+
+.profile-menu button:hover {
+    background-color: #271458; /* Color al pasar el ratón */
+}

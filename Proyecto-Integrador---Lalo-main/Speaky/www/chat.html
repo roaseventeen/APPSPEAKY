@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky Chat</title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <header>
+        <img src="img/arrow-regresar.png" alt="Volver" onclick="goHome()" class="back-arrow">
+        <h1>Chat</h1>
+        <img src="img/icon-menu.png" alt="Menu" class="menu-icon" onclick="toggleMenu()">
+    </header>
+    <div id="menu" class="menu">
+        <div class="menu-option" onclick="showInfoModal()">
+            <img src="img/icon-info.png" alt="Info">
+            <span>Información</span>
+        </div>
+    </div>
+    <div class="chat-container" id="chat-container">
+        <!-- Mensajes del chat -->
+    </div>
+    <div class="chat-input-container">
+        <div class="chat-input">
+            <button id="tts-button">Texto a Voz</button>
+            <button onclick="showWriteMessageForm()">Escribir</button>
+        </div>
+        <button id="people-button">Personas</button>
+    </div>
+
+    <!-- Modal de información -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInfoModal()">&times;</span>
+            <p>Hola soy una persona con problemas del habla, por favor comuniquémonos usando este chat.</p>
+            <p>Modo se uso:</p>
+            <p>El chat permite la comunicación escribiendo o hablando.</p>
+            <p>Por favor antes de comenzar, registra tu nombre usando la opción de "Personas".</p>
+            <p>Usa "Escribir" para abrir el teclado y enviar mensajes.</p>
+            <p>Usa "Texto a Voz" para activar el micrófono y transcribir lo que dices a texto, ideal por si no gustas escribir.</p>
+            <p>Antes de enviar un mensaje ya sea usando "Escribir" o "Usando Texto a Voz", selecciona el nombre de como anteriormente te
+                registraste.</p> 
+        </div>
+    </div>
+
+    <!-- Modal de agregar personas -->
+    <div id="add-person-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddPersonModal()">&times;</span>
+            <h3>Agregar Persona</h3>
+            <input type="text" id="person-name" placeholder="Nombre de la persona">
+            <button onclick="addPerson()">Agregar</button>
+        </div>
+    </div>
+
+    <!-- Modal para escribir mensajes -->
+    <div id="write-message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWriteMessageModal()">&times;</span>
+            <h3>Escribir Mensaje</h3>
+            <div id="person-checkboxes">
+                <!-- Aquí se agregarán los checkbox de las personas -->
+            </div>
+            <textarea id="message-text" placeholder="Escribe tu mensaje aquí"></textarea>
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Modal para Texto a Voz -->
+    <div id="tts-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTTSModal()">&times;</span>
+            <h3>Voz a Texto</h3>
+            <div id="tts-person-checkboxes">
+                <!-- Aquí se agregarán los checkbox de las personas -->
+            </div>
+            <button onclick="startListening()">Iniciar</button>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

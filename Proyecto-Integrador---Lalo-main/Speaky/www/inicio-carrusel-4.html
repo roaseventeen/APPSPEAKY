@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky - Inicio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/inicio-carrusel-1.css">
+    <style>
+        /* Deshabilitar selección de texto */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        /* Deshabilitar toque prolongado para imágenes y texto en dispositivos móviles */
+        img, p, h1, h2, h3, h4, h5, h6, div, span, button {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        }
+    </style>
+</head>
+<body class="registro-4">
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar-1"></div>
+        <div class="progress-bar" id="progress-bar-2"></div>
+        <div class="progress-bar" id="progress-bar-3"></div>
+        <div class="progress-bar active" id="progress-bar-4"></div>
+    </div>
+    <div class="container">
+        <h1>¡No pierdas más el tiempo, Speaky te espera!</h1>
+        <div class="image-container">
+            <img src="img/inicio-carrusel-1.png" alt="Conocer Mejor" class="main-image">
+        </div>
+        <div class="button-container">
+            <button class="btn" onclick="navigateToLogin()">Ya tengo cuenta</button>
+            <button class="btn" onclick="navigateToRegister()">Crear cuenta</button>
+        </div>
+    </div>
+    <script>
+        function navigateToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        function navigateToRegister() {
+            window.location.href = 'registro.html';
+        }
+    </script>
+    <script src="js/carrusel-4.js"></script>
+</body>
+</html>

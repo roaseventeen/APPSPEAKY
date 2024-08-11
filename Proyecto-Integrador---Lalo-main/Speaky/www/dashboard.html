@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Speaky</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Profile Icon -->
+        <div class="profile-icon" onclick="toggleLogout()">
+            <img src="img/icon-perfil.png" alt="Perfil" title="Cerrar sesión">
+        </div>
+        <div class="logout-box" id="logout-box">
+            <button onclick="logout()">Cerrar sesión</button>
+        </div>
+
+        <!-- Dashboard Sections -->
+        <div class="sections-container">
+            <div class="dashboard-section" onclick="navigateTo('admin-pictogramas.html')">
+                <div class="section-icon">
+                    <img src="img/icon-pictogramas.png" alt="Pictogramas">
+                </div>
+                <span>Pictogramas</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/logout.js"></script>
+</body>
+</html>

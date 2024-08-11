@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto/Imagen a Voz</title>
+    <link rel="stylesheet" href="imagen-a-voz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1F23;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+             /* Asegura que el body ocupa toda la altura de la vista */
+        }
+        header {
+            width: 100%;
+            background-color: #431999;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            height: 60px; /* Ajusta la altura del header si es necesario */
+        }
+        .back-button, .menu-button {
+            background: none;
+            border: none;
+            color: #008000;
+            cursor: pointer;
+            position: absolute; /* Permite posicionar los botones en las orillas */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%; /* Tamaño del 10% del ancho del header */
+            height: auto;
+        }
+        .back-button {
+            left: -18%; /* Pegado a la orilla izquierda */
+        }
+        .menu-button {
+            right: -18%; /* Pegado a la orilla derecha */
+        }
+        .back-button img, .menu-button img {
+            width: 10%; /* Tamaño de la imagen dentro del botón al 10% del ancho del botón */
+            height: auto;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center; /* Centra el título horizontalmente */
+            position: relative; /* Necesario para el posicionamiento absoluto de los botones */
+        }
+        .header-content .title {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            margin: 0;
+        }
+        main {
+            margin-top: 80px; /* Ajusta el margen superior para dar espacio al encabezado */
+            padding: 20px;
+            width: 100%;
+            max-width: 600px; /* Ajusta el ancho máximo del contenido */
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #008000;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        #image-input {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="goBack()">
+                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+            </button>
+            <div class="title">Texto/Imagen a Voz</div>
+            <button class="menu-button"></button>
+        </div>
+    </header>
+    <main>
+        <textarea id="text-input" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+        <button id="play-button" onclick="convertTextToSpeech()">Reproducir</button>
+        <input type="file" id="image-input" accept="image/*">
+        <div id="output"></div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+    <script src="js/imagen-a-voz.js"></script>
+</body>
+</html>

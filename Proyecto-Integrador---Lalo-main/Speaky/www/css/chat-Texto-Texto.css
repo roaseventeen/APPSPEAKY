@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #1E1F23;
+    color: white;
+    overflow: hidden; /* Evitar scroll en la página principal */
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 60px; /* Ajustar la altura */
+    background-color: #431999;
+    box-shadow: 0 4px 2px -2px gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Asegura que el contenido esté bien distribuido */
+    padding: 0 10px; /* Espacio en los lados */
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+    flex: 1; /* Para centrar el texto */
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    width: 30px; /* Tamaño de los iconos */
+    cursor: pointer;
+}
+
+.chat-container {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.chat-message.user {
+    background-color: #007bff;
+    color: white;
+}
+
+#menu {
+    display: none;
+    position: absolute;
+    top: 60px; /* Ajustar la posición para que esté debajo del encabezado */
+    right: 10px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu-option img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#add-person-modal input,
+#write-message-modal textarea,
+#tts-person-checkboxes {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#person-checkboxes,
+#tts-person-checkboxes {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Ocultar elementos de la lista de personas */
+.person {
+    display: none;
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+    .chat-input-section button {
+        width: 45%; /* Ajustar el ancho de los botones en pantallas pequeñas */
+        font-size: 14px;
+    }
+    .modal-content {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* Nuevos estilos para las secciones añadidas */
+.chat-input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-top: 20px; /* Añadir un margen superior para separar del header */
+}
+
+.chat-input-section textarea {
+    width: 90%;
+    height: 50px;
+    margin-bottom: 20px; /* Mayor margen inferior */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.chat-input-section button {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Mayor margen inferior */
+}
+
+.chat-input-section button:hover {
+    background-color: #45a049;
+}
+
+.voice-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.voice-selection h4 {
+    margin-bottom: 10px;
+}
+
+.voice-selection div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.voice-selection label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.voice-selection input[type="radio"] {
+    margin-right: 10px;
+}

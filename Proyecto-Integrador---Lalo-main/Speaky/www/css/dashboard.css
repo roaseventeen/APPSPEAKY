@@ -1,0 +1,125 @@
+body, html {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1E1F23; /* Fondo oscuro */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px; /* Espacio a los lados */
+    box-sizing: border-box;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.profile-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.logout-box {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #431999;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout-box button {
+    background-color: #431999;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.logout-box button:hover {
+    background-color: #342074;
+}
+
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px; /* Espacio para el icono de perfil */
+}
+
+.dashboard-section {
+    background-color: #431999; /* Fondo azul */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.dashboard-section:hover {
+    background-color: #342074; /* Cambiar el color al pasar el ratón */
+}
+
+.section-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.section-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.dashboard-section span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .dashboard-container {
+        max-width: 100%;
+    }
+
+    .dashboard-section {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .section-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dashboard-section span {
+        font-size: 16px;
+    }
+}

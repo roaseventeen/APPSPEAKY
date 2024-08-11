@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1F23;
+            color: white;
+            margin: 0;
+        }
+        #calculationModal, #reportModal {
+            display: none;
+        }
+        header {
+            width: 100%;
+            background-color: #431999;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative">
+
+    <header>
+        <div class="header-content">
+            <button class="back-button " onclick="goBack()"><img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" class="max-w-8"></button>
+            <h1>Pulso cardiaco</h1>
+            <button class="menu-button"></button>
+        </div>
+    </header>
+
+    <div class="bg-[#1E1F23] shadow-md rounded-lg p-8 max-w-md w-full mt-16 border border-white">
+        <form id="userForm">
+            <div class="mb-4">
+                <label for="name" class="block mb-2">Nombre</label>
+                <input type="text" id="name" class="w-full p-2 border border-[#431999] rounded bg-[#1E1F23] text-white">
+            </div>
+            <div class="mb-4">
+                <label for="age" class="block mb-2">Edad</label>
+                <input type="number" id="age" class="w-full p-2 border border-[#431999] rounded bg-[#1E1F23] text-white">
+            </div>
+            <div class="mb-4">
+                <label for="weight" class="block mb-2">Peso Corporal (kg)</label>
+                <input type="number" id="weight" class="w-full p-2 border border-[#431999] rounded bg-[#1E1F23] text-white">
+            </div>
+            <div class="mb-4">
+                <label for="height" class="block mb-2">Estatura (cm)</label>
+                <input type="number" id="height" class="w-full p-2 border border-[#431999] rounded bg-[#1E1F23] text-white">
+            </div>
+            <div class="mb-4">
+                <label for="date" class="block mb-2">Día</label>
+                <input type="date" id="date" class="w-full p-2 border border-[#431999] rounded bg-[#1E1F23] text-white">
+            </div>
+            <button type="submit" class="w-full bg-[#431999] text-white p-2 rounded hover:bg-[#341577]">Enviar</button>
+        </form>
+    </div>
+
+    <div id="calculationModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-[#1E1F23] p-5 rounded shadow-lg text-center border border-white">
+            <h3 class="text-xl mb-4">Calculando Ritmo Cardíaco...</h3>
+            <p>Por favor, espera un momento.</p>
+        </div>
+    </div>
+
+    <div id="reportModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-[#1E1F23] p-5 rounded shadow-lg text-center max-w-sm w-full border border-white">
+            <h3 class="text-xl text-[#431999] mb-4">Reporte de Ritmo Cardíaco</h3>
+            <p id="reportContent"></p>
+            <button id="closeReportButton" class="mt-4 bg-[#431999] text-white p-2 rounded hover:bg-[#341577]">Entendido</button>
+        </div>
+    </div>
+
+    <button id="historyButton" class="fixed bottom-5 right-5 bg-[#431999] text-white p-3 rounded-full hover:bg-[#341577]">
+        <img src="Public/assets/reloj-tres.svg" alt="Historial" class="w-6 h-6">
+    </button>
+
+    <script src="js/imagen-a-voz.js"></script>
+
+
+    <script type="module">
+
+        function goHome() {
+            console.log('Navigating to home');
+            window.location.href = 'home.html';
+        }
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDlag2PsQ--E69R1oIUvCBuuoS0Th561Mc",
+            authDomain: "signtalker-2481c.firebaseapp.com",
+            projectId: "signtalker-2481c",
+            storageBucket: "signtalker-2481c.appspot.com",
+            messagingSenderId: "133777415790",
+            appId: "1:133777415790:web:08aec665963a34b0aa107f",
+            measurementId: "G-Q564WRH8Q8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        function goHome() {
+            window.location.href = '/'; // Redirige a la página principal
+        }
+
+        document.querySelector('.view-back').addEventListener('click', function() {
+            loadPartialView('opciones-app', '.init', false);
+        });
+
+        document.getElementById('userForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const date = document.getElementById('date').value;
+
+            // Show calculation modal
+            document.getElementById('calculationModal').style.display = 'flex';
+
+            // Simulate calculation delay
+            setTimeout(async () => {
+                document.getElementById('calculationModal').style.display = 'none';
+
+                // Calculate heart rate (example calculation)
+                const heartRate = (220 - age) * 0.7;
+
+                // Show report modal
+                const reportContent = `
+                    Nombre: ${name}<br>
+                    Edad: ${age}<br>
+                    Peso Corporal: ${weight} kg<br>
+                    Estatura: ${height} cm<br>
+                    Día: ${date}<br>
+                    Ritmo Cardíaco Estimado: ${heartRate} bpm
+                `;
+                document.getElementById('reportContent').innerHTML = reportContent;
+                document.getElementById('reportModal').style.display = 'flex';
+
+                try {
+                    await addDoc(collection(db, "users"), {
+                        name: name,
+                        age: age,
+                        weight: weight,
+                        height: height,
+                        date: date,
+                        heartRate: heartRate
+                    });
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+            }, 2000);
+        });
+
+        document.getElementById('closeReportButton').addEventListener('click', () => {
+            document.getElementById('reportModal').style.display = 'none';
+            document.getElementById('userForm').reset();
+        });
+
+        document.getElementById('historyButton').addEventListener('click', async () => {
+            const querySnapshot = await getDocs(collection(db, "users"));
+            let historyContent = '<h3 class="text-xl text-[#431999] mb-4 overflow-scroll">Historial</h3>';
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                historyContent += `
+                    <p>Nombre: ${data.name}<br>
+                    Edad: ${data.age}<br>
+                    Peso Corporal: ${data.weight} kg<br>
+                    Estatura: ${data.height} cm<br>
+                    Día: ${data.date}<br>
+                    Ritmo Cardíaco Estimado: ${data.heartRate} bpm</p><hr class="my-2">
+                `;
+            });
+            const historyModal = document.createElement('div');
+            historyModal.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center';
+            historyModal.innerHTML = `
+                <div class="bg-[#1E1F23] p-5 rounded shadow-lg text-center max-w-sm w-full border border-white">
+                    ${historyContent}
+                    <button id="closeHistoryButton" class="mt-4 bg-[#431999] text-white p-2 rounded hover:bg-[#341577]">Cerrar</button>
+                </div>
+            `;
+            document.body.appendChild(historyModal);
+
+            document.getElementById('closeHistoryButton').addEventListener('click', () => {
+                document.body.removeChild(historyModal);
+            });
+        });
+    </script>
+</body>
+</html>

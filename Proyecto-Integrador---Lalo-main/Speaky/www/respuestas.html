@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky Chat - Respuestas y Preguntas</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1F23;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            width: 100%;
+            background-color: #431999;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .back-button img {
+            width: 24px;
+            height: 24px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .content-wrapper {
+            margin-top: 10%; /* Añade un 10% de margen superior */
+            padding: 20px;
+            text-align: center;
+        }
+        .content-wrapper img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            body, html {
+                overflow: hidden;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="goBack()">
+                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+            </button>
+            <h1>Respuestas y Preguntas</h1>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/preguntas.PNG" alt="Respuestas y Preguntas">
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

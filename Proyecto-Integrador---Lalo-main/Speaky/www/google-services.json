@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "986263322125",
+    "project_id": "speaky-22873",
+    "storage_bucket": "speaky-22873.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986263322125:android:5bf94cfdf2a930ca299f44",
+        "android_client_info": {
+          "package_name": "com.audelo.speaky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1ceTerLSwI02Fxfk4CcGQ7lJZR4zcbEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

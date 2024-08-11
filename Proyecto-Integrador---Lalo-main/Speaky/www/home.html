@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky Chat - Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        @media (max-width: 600px) {
+            body, html {
+                overflow: hidden; /* Evita el desplazamiento */
+                -webkit-user-select: none; /* Chrome, Safari */
+                -moz-user-select: none;    /* Firefox */
+                user-select: none;         /* Standard */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Menú</h1>
+    </header>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="menu-item">
+                <a href="Chat-Texto-Texto.html">
+                    <div class="icon-container">
+                        <img src="img/icon-chat.png" alt="Chat">
+                    </div>
+                    <p>Texto a Voz</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="pictogramas.html">
+                    <div class="icon-container">
+                        <img src="img/icon-pictogramas.png" alt="Pictogramas">
+                    </div>
+                    <p>Pictogramas</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="atajos.html">
+                    <div class="icon-container">
+                        <img src="img/icon-atajos.png" alt="Atajos">
+                    </div>
+                    <p>Atajos</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="texto-a-voz.html">
+                    <div class="icon-container">
+                        <img src="img/icon-texto-imagen-a-voz.png" alt="Texto/Imagen a Voz">
+                    </div>
+                    <p>Texto/Imagen a Voz</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="diccionario.html">
+                    <div class="icon-container">
+                        <img src="img/icons8-glosario-48.png" alt="Pulso Cardiaco">
+                    </div>
+                    <p>Diccionario lengua de señas</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="presion.html">
+                    <div class="icon-container">
+                        <img src="img/icon-presion.png" alt="Pulso Cardiaco">
+                    </div>
+                    <p>Pulso Cardiaco</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="profile-container">
+        <div class="profile">
+            <div class="profile-icon" onclick="toggleProfileMenu()">
+                <img src="img/icon-perfil.png" alt="Perfil">
+            </div>
+            <div id="profile-menu" class="profile-menu">
+                <button onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="js/logout-user.js"></script>
+</body>
+</html>

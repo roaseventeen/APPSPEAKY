@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.audelo.speaky" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Speaky</name>
+    <description>Sample Apache Cordova App</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+    <content src="pantalla-carga.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <platform name="android">
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        </config-file>
+        <feature name="File">
+            <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+            <param name="onload" value="true" />
+        </feature>
+        <allow-navigation href="cdvfile:*" />
+        <feature name="Media">
+            <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+        </feature>
+        <feature name="Permissions">
+            <param name="android-package" value="com.android.plugins.Permissions" />
+        </feature>
+    </platform>
+    
+    <preference name="loglevel" value="DEBUG" />
+</widget>

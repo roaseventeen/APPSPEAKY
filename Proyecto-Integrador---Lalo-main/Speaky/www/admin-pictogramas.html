@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky - Pictogramas</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-pictogramas.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pictogramas</h1>
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('colecciones-pictogramas')">Colecciones</button>
+            <button class="tab" onclick="showTab('pictogramas')">Pictogramas</button>
+        </div>
+
+        <!-- Sección de Colecciones -->
+        <div id="colecciones-pictogramas">
+            <input type="text" id="search-collections" placeholder="Buscar...">
+            <button onclick="showCreateCollectionModal()">+ Crear Colección</button>
+            <div id="collections-list"></div>
+        </div>
+
+        <!-- Sección de Pictogramas -->
+        <div id="pictogramas" style="display: none;">
+            <input type="text" id="search-pictograms" placeholder="Buscar...">
+            <button onclick="showCreatePictogramModal()">+ Crear Pictograma</button>
+            <select id="filter-collections" onchange="filterPictogramsByCollection()">
+                <option value="">Todas las Colecciones</option>
+            </select>
+            <div id="pictograms-list"></div>
+        </div>
+
+        <!-- Modal para crear colección -->
+        <div id="create-collection-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreateCollectionModal()">&times;</span>
+                <h2>Crear Colección</h2>
+                <label for="collection-name">Nombre de la Colección</label>
+                <input type="text" id="collection-name">
+                <button onclick="createCollection()">Guardar</button>
+            </div>
+        </div>
+
+        <!-- Modal para crear pictograma -->
+        <div id="create-pictogram-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreatePictogramModal()">&times;</span>
+                <h2>Crear Pictograma</h2>
+                <label for="pictogram-name">Nombre del Pictograma</label>
+                <input type="text" id="pictogram-name">
+                <label for="pictogram-image">Imagen del Pictograma</label>
+                <input type="file" id="pictogram-image">
+                <label for="pictogram-collection">Colección</label>
+                <select id="pictogram-collection"></select>
+                <button onclick="createPictogram()">Guardar</button>
+            </div>
+        </div>
+
+        <!-- Modal para editar pictograma -->
+        <div id="edit-pictogram-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEditPictogramModal()">&times;</span>
+                <h2>Editar Pictograma</h2>
+                <label for="edit-pictogram-name">Nombre del Pictograma</label>
+                <input type="text" id="edit-pictogram-name">
+                <label for="edit-pictogram-image">Imagen del Pictograma</label>
+                <input type="file" id="edit-pictogram-image">
+                <label for="edit-pictogram-collection">Colección</label>
+                <select id="edit-pictogram-collection"></select>
+                <button onclick="savePictogramEdits()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="js/admin-pictogramas.js"></script>
+</body>
+</html>

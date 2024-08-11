@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1E1F23;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #431999;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.header-title {
+    align-items: center;
+    text-align: center;
+    flex: auto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-arrow, .menu-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.back-arrow {
+    width: 24px;
+    height: 24px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#collections-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.folder {
+    background-color: #431999;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.folder:hover {
+    background-color: #342074;
+}
+
+.folder img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.folder p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+}

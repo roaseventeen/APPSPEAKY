@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaky Chat - Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1F23;
+            color: white;
+            margin: 0;
+        }
+        header {
+            width: 100%;
+            background-color: #431999;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            margin: 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-button, .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .back-button img {
+            width: 24px;
+            height: 24px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .content-wrapper {
+            margin-top: 10%; /* Añade un 10% de margen superior */
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            text-align: center;
+            width: 45%;
+            margin-bottom: 20px;
+        }
+        .menu-item a {
+            color: white;
+            text-decoration: none;
+        }
+        .icon-container {
+            margin-bottom: 10px;
+        }
+        .icon-container img {
+            max-width: 100%;
+        }
+        @media (max-width: 600px) {
+            body, html {
+                overflow: hidden;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+            .menu-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <button class="back-button" onclick="goBack()">
+                <img src="/Proyecto-Integrador---Lalo-main/Speaky/www/img/arrow-regresar.png" alt="Regresar">
+            </button>
+            <h1>Diccionario</h1>
+            <button class="menu-button"></button>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="menu-item">
+                <a href="abecedario.html">
+                    <div class="icon-container">
+                        <img src="img/az.png" alt="Abecedario">
+                    </div>
+                    <p>ABECEDARIO</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="preguntas.html">
+                    <div class="icon-container">
+                        <img src="img/question.png" alt="Preguntas">
+                    </div>
+                    <p>PREGUNTAS</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="respuestas.html">
+                    <div class="icon-container">
+                        <img src="img/talk.png" alt="Respuestas">
+                    </div>
+                    <p>RESPUESTAS Y PREGUNTAS</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="saludos.html">
+                    <div class="icon-container">
+                        <img src="img/hug.png" alt="Saludos">
+                    </div>
+                    <p>SALUDOS Y DESPEDIDAS</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="personas.html">
+                    <div class="icon-container">
+                        <img src="img/people.png" alt="Personas">
+                    </div>
+                    <p>PERSONAS</p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="dias.html">
+                    <div class="icon-container">
+                        <img src="img/calendar.png" alt="Días y Meses">
+                    </div>
+                    <p>DIAS Y MESES</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>
